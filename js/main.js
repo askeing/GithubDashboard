@@ -6,7 +6,7 @@ var config = new Object();
 var repos = [];
 
 $(document).ready(function() {
-    $.getJSON( "../config/config.json", function( data ) {
+    $.getJSON( "config/config.json", function( data ) {
         $.each( data, function( key, val ) {
             config[key] = val;
         });
