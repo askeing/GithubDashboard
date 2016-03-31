@@ -11,12 +11,10 @@ $(document).ready(function() {
             config[key] = val;
         });
 
-        // change Title
-        $("head title").html(config["head_title"]);
-        $("#config_title").html(config["title"]);
-        // change description
-        $("#config_description").html(config["description"]);
-        // change the URL link
+        //$("head title").html(config["head_title"]);
+        //$("#config_title").html(config["title"]);
+        //$("#config_description").html(config["description"]);
+        // Change the URL link
         $("#btn-learn-more").click( function() {
             window.open(config["url"], "githubURL");
         });
