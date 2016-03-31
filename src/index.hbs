@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel=icon href=favicon.png sizes="16x16 32x32 48x48 64x64" type="image/png">
+    <title>{{head_title}}</title>
+    <meta property="og:title" content="{{head_title}}" />
+    <meta property="og:description" content="{{description}}" />
+    {{#if fb_og_image}}
+    <meta property="og:image" content="{{fb_og_image}}" />
+    {{/if}}
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="import" href="js/github-fork.html">
+    <script src="js/jquery-1.12.2.min.js"></script>
+    <script src="js/all.min.js"></script>
+</head>
+<body>
+    {{#if github_fork}}
+    <github-fork class="text-center" href="https://github.com/askeing/GithubDashboard"></github-fork>
+    {{/if}}
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-md-8 col-xs-8">
+                <h1 id="config_title">{{title}}</h1>
+                <p id="config_description">{{description}}</p>
+                <p><a id="btn-learn-more" class="btn btn-primary btn-lg" href="#" role="button">Github &raquo;</a></p>
+            </div>
+            {{#if avatar_url}}
+                {{#if avatar_url_size}}
+                <div class="col-md-4 col-xs-4">
+                    <img src="{{avatar_url}}" class="img-responsive img-rounded center-block" alt="Avatar" style="width: {{avatar_url_size}}; height: {{avatar_url_size}};">
+                </div>
+                {{/if}}
+            {{/if}}
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-xs-4">
+                <div class="btn-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id="btn-language-label">ALL</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" id="btn-language-selection">
+                        <li id="lang-all"><a href="#">ALL</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </br>
+    <div class="container" id="repos_list">
+        <div class="btn btn-lg btn-warning" id="loading-placeholder"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</div>
+    </div>
+    <footer>
+        <div class="container text-center">
+            {{#if footer_link}}
+            <ul class="list-inline">
+                {{#each footer_link}}
+                    <li><a href="{{this.link}}" target="_blank"><b>{{this.name}}</b></a></li>
+                {{/each}}
+            </ul>
+            {{/if}}
+            <p>Designed and built by <a href="https://twitter.com/askeing">@askeing</a>.</p>
+            <p>Star and support this project on <a href="https://github.com/askeing/GithubDashboard" target="_blank">Github</a>.
+        </div>
+    </footer>
+</body>
+</html>
