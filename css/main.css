@@ -1,0 +1,17 @@
+.panel-body {
+    overflow: auto;
+    min-height: 80px;
+    max-height: 80px;
+}
+
+.panel-heading {
+    cursor: pointer;
+}
+
+.panel-heading h2 {
+    display: inline;
+}
+
+.panel-heading .fa-external-link {
+    float: right;
+}
