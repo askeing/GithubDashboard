@@ -12,7 +12,7 @@ $(document).ready(function() {
         });
 
         // change Title
-        $("head title").html(config["title"]);
+        $("head title").html(config["head_title"]);
         $("#config_title").html(config["title"]);
         // change description
         $("#config_description").html(config["description"]);
