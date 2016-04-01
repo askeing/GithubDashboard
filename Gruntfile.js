@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         'uglify': {
             javascript_files: {
                 files: {
-                    'dest/js/all.min.js': ['src/js/bootstrap.min.js', 'src/js/webcomponents.min.js', 'src/js/dashboard.js']
+                    'dest/js/dashboard.min.js': ['src/js/dashboard.js']
                 }
             }
         },
@@ -36,7 +36,7 @@ module.exports = function (grunt) {
             js: {
                 expand: true,
                 cwd: 'src/js',
-                src: ['github-fork.html', 'jquery-1.12.2.min.js'],
+                src: ['*.min.js', '*.html'],
                 dest: 'dest/js'
             },
             fonts: {

@@ -11,9 +11,13 @@
     {{/if}}
 
     <link rel="stylesheet" href="css/all.min.css">
-    <link rel="import" href="js/github-fork.html">
     <script src="js/jquery-1.12.2.min.js"></script>
-    <script src="js/all.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/dashboard.min.js"></script>
+    {{#if github_fork}}
+    <script src="js/webcomponents.min.js"></script>
+    <link rel="import" href="js/github-fork.html">
+    {{/if}}
 </head>
 <body>
     {{#if github_fork}}
