@@ -113,5 +113,6 @@ $(document).ready(function() {
                 error_div.textContent = error_msg;
                 container.html(error_div);
             });
+        $('.dropdown-toggle').dropdown();
     });
 });
