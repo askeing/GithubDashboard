@@ -4,5 +4,22 @@
   "description": "Here's Askeing Github Repositories Dashboard.",
   "favicon_url": "http://askeing.github.io/GithubDashboard/favicon.png",
   "url": "https://github.com/askeing/",
-  "username": "askeing"
+  "avatar_url": "https://avatars.githubusercontent.com/u/1042649?v=3",
+  "avatar_url_size": "180px",
+  "username": "askeing",
+  "github_fork": true,
+  "footer_link": [
+    {
+      "name": "GitHub",
+      "link": "https://github.com/askeing/"
+    },
+    {
+      "name": "Twitter",
+      "link": "https://twitter.com/askeing/"
+    },
+    {
+      "name": "Blog",
+      "link": "http://askeing.blogspot.tw/"
+    }
+  ]
 }

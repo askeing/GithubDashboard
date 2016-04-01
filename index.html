@@ -4,49 +4,58 @@
     <meta charset="UTF-8">
     <link rel=icon href=favicon.png sizes="16x16 32x32 48x48 64x64" type="image/png">
     <title>Askeing Dashboard</title>
-
     <meta property="og:title" content="Askeing Dashboard" />
     <meta property="og:description" content="Here&#x27;s Askeing Github Repositories Dashboard." />
     <meta property="og:image" content="http://askeing.github.io/GithubDashboard/favicon.png" />
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="import" href="js/github-fork.html">
     <script src="js/jquery-1.12.2.min.js"></script>
-    <!-- Font-Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <!-- Bootstrap -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/main.js"></script>
+    <script src="js/all.min.js"></script>
 </head>
-<br>
+<body>
+    <github-fork class="text-center" href="https://github.com/askeing/GithubDashboard"></github-fork>
     <div class="jumbotron">
         <div class="container">
-            <h1 id="config_title">Askeing</h1>
-
-            <p id="config_description">Here&#x27;s Askeing Github Repositories Dashboard.</p>
-
-            <p><a id="btn-learn-more" class="btn btn-primary btn-lg" href="#" role="button">Check Out &raquo;</a></p>
+            <div class="col-md-8 col-xs-8">
+                <h1 id="config_title">Askeing</h1>
+                <p id="config_description">Here&#x27;s Askeing Github Repositories Dashboard.</p>
+                <p><a id="btn-learn-more" class="btn btn-primary btn-lg" href="#" role="button">Github &raquo;</a></p>
+            </div>
+                <div class="col-md-4 col-xs-4">
+                    <img src="https://avatars.githubusercontent.com/u/1042649?v&#x3D;3" class="img-responsive img-rounded center-block" alt="Avatar" style="width: 180px; height: 180px;">
+                </div>
         </div>
     </div>
     <div class="container">
-        <div class="raw">
-            <div class="btn-group">
-                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span id="btn-language-label">All</span> <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" id="btn-language-selection">
-                    <li id="lang-all"><a href="#">ALL</a></li>
-                    <li role="separator" class="divider"></li>
-                </ul>
+        <div class="row">
+            <div class="col-md-4 col-xs-4">
+                <div class="btn-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id="btn-language-label">ALL</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" id="btn-language-selection">
+                        <li id="lang-all"><a href="#">ALL</a></li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
     </br>
-    <div class="container" id="repos_list"></div>
+    <div class="container" id="repos_list">
+        <div class="btn btn-lg btn-warning" id="loading-placeholder"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</div>
+    </div>
+    <footer>
+        <div class="container text-center">
+            <ul class="list-inline">
+                    <li><a href="https://github.com/askeing/" target="_blank"><b>GitHub</b></a></li>
+                    <li><a href="https://twitter.com/askeing/" target="_blank"><b>Twitter</b></a></li>
+                    <li><a href="http://askeing.blogspot.tw/" target="_blank"><b>Blog</b></a></li>
+            </ul>
+            <p>Designed and built by <a href="https://twitter.com/askeing">@askeing</a>.</p>
+            <p>Star and support this project on <a href="https://github.com/askeing/GithubDashboard" target="_blank">Github</a>.
+        </div>
+    </footer>
 </body>
 </html>
