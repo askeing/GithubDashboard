@@ -1,13 +1,13 @@
 {
+  "username": "askeing",
+  "url": "https://github.com/askeing/",
   "head_title": "Askeing Dashboard",
   "title": "Askeing",
-  "description": "Here's Askeing Github Repositories Dashboard.",
-  "favicon_url": "http://askeing.github.io/GithubDashboard/favicon.png",
-  "url": "https://github.com/askeing/",
+  "description": "I’m Askeing (fyen)! I love coding, writing, reading, thinking. Sometimes playing darts and PS4.",
+  "fb_og_image": "http://askeing.github.io/GithubDashboard/favicon.png",
   "avatar_url": "https://avatars.githubusercontent.com/u/1042649?v=3",
   "avatar_url_size": "180px",
-  "username": "askeing",
-  "github_fork": true,
+  "github_fork": false,
   "footer_link": [
     {
       "name": "GitHub",
