@@ -1,10 +1,14 @@
 # GithubDashboard
 
-Show Your Github Repositories on Dashboard
+Generating the Dashboard of your Github Repositories.
 
-Here's the [dashboard] of my Github repositories.
+## DEMO
 
-[dashboard]: http://askeing.github.io/GithubDashboard/
+Here's the [GithubDashboard] of my Github repositories.
+
+[GithubDashboard]: http://askeing.github.io/GithubDashboard/
+
+![screenshot](https://github.com/askeing/GithubDashboard/raw/master/img/screenshot.png)
 
 ## Build Your Dashboard
 
