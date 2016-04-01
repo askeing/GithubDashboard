@@ -1,6 +1,4 @@
-/**
- * Created by Askeing on 16/3/30.
- */
+"use strict";
 
 var config = new Object();
 var repos = [];
@@ -11,41 +9,29 @@ $(document).ready(function() {
             config[key] = val;
         });
 
-        // change Title
-        $("head title").html(config["head_title"]);
-        $("#config_title").html(config["title"]);
-        // change description
-        $("#config_description").html(config["description"]);
-        // change the URL link
+        // Change the URL link
         $("#btn-learn-more").click( function() {
             window.open(config["url"], "githubURL");
         });
 
         // get repos information
         var all_languages = new Map();
-        api_url = "https://api.github.com/users/" + config["username"] + "/repos?type=all&per_page=100&sort=updated&direction=desc";
+        var api_url = "https://api.github.com/users/" + config["username"] + "/repos?type=all&per_page=100&sort=updated&direction=desc";
         var container = $("#repos_list");
         $.ajax(api_url)
             .done( function(ret_json) {
                 repos = ret_json;
-                /*
-                // Sort return json array, but we can use API for sorting.
-                repos.sort(function(a, b) {
-                    a = new Date(a.updated_at);
-                    b = new Date(b.updated_at);
-                    return a>b ? -1 : a<b ? 1 : 0;
-                });
-                */
                 var row_div = document.createElement("div");
                 row_div.className = "row";
+                container.html("");
                 container.append(row_div);
                 var container_row = container.children("div.row");
 
-                var repo_template = '\
-                <div class="col-md-4 repo-card lang-%REPO_LANG%"> \
+                var repo_template = ' \
+                <div class="col-md-4 col-xs-6 repo-card lang-%REPO_LANG_ID%"> \
                     <div class="panel panel-default"> \
                         <div class="panel-heading" repolink="%REPO_LINK%"> \
-                            <h2 class="panel-title">%REPO_NAME%</h2><i class="fa fa-external-link"></i>\
+                            <h2 class="text-primary panel-title">%REPO_NAME%<i class="fa fa-external-link"></i></h2> \
                         </div> \
                         <div class="panel-body"> \
                             %REPO_DESC% \
@@ -61,41 +47,40 @@ $(document).ready(function() {
                 $.each( repos, function (index, repo) {
                     var name = repo.name;
                     var html_url = repo.html_url;
-                    var description = repo.description;
-                    var stargazers = repo.stargazers_count;
-                    var forks = repo.forks;
-                    var language = repo.language;
+                    var description = repo.description || "No description provided.";
+                    var stargazers = repo.stargazers_count || "0";
+                    var forks = repo.forks || "0";
+                    var language = repo.language || "Other";
                     var updated_at = repo.updated_at;
                     // Add language into all_languates list.
-                    all_languages.set(language, true);
+                    var language_id = language.replace(/[\s]+/gi, "")
+                        .replace(/[\+]/gi, "plus")
+                        .replace(/[#]/gi, "sharp")
+                        .replace(/[']/gi, "apostrophe");
+                    all_languages.set(language, language_id);
                     // Create repo card html.
                     var replace = {
                         "%REPO_NAME%": name,
-                        "%REPO_DESC%": description || "No description provided.",
-                        "%REPO_LANG%": language || "Other",
-                        "%REPO_FORK%": forks || "0",
-                        "%REPO_STAR%": stargazers || "0",
+                        "%REPO_DESC%": description,
+                        "%REPO_LANG%": language,
+                        "%REPO_LANG_ID%": language_id,
+                        "%REPO_FORK%": forks,
+                        "%REPO_STAR%": stargazers,
                         "%REPO_LINK%": html_url,
                         "%REPO_UPTATE%": updated_at
                     };
                     var repo_card_html = repo_template.replace(/%\w+%/g, function(placeholder) { return replace[placeholder] || placeholder; } );
                     container_row.append(repo_card_html);
                 });
-                // Add languages into Languages_Selection Button.
-                for (var key of all_languages.keys())
-                {
-                    if (key != null) {
-                        var id = "lang-" + key;
-                        var li_html = "<li id=\"" + id + "\"><a href=\"#\">" + key + "</a></li>";
+
+                function addLanguageButtons(lang_id, lang_key, all_languages) {
+                    if (lang_key != null) {
+                        var id = "lang-" + lang_id;
+                        var li_html = "<li id=\"" + id + "\"><a href=\"#\">" + lang_key + "</a></li>";
                         $("ul#btn-language-selection").append(li_html);
                     }
                 }
-                {
-                    var key = "Other";
-                    var id = "lang-" + key;
-                    var li_html = "<li id=\"" + id + "\"><a href=\"#\">" + key + "</a></li>";
-                    $("ul#btn-language-selection").append(li_html);
-                }
+                all_languages.forEach(addLanguageButtons);
 
                 // Listen on repo card click
                 $("#repos_list div.row div[repolink]").click(function() {
@@ -108,14 +93,13 @@ $(document).ready(function() {
                     // TODO: implement the filter of repos cards
                     var select_lang = this.id;
                     var select_lang_text = $(this).text();
-                    console.log(select_lang);
                     if (select_lang === "lang-all") {
                         $("#repos_list .repo-card").show();
                         $("#btn-language-label").text(select_lang_text);
                     }
                     else {
                         $("#repos_list .repo-card").hide();
-                        $("#repos_list .repo-card").filter("." + select_lang).show();
+                        $("#repos_list .repo-card." + select_lang).show();
                         $("#btn-language-label").text(select_lang_text);
                     }
                 });

@@ -1,0 +1,40 @@
+.panel-body {
+    overflow: auto;
+    min-height: 80px;
+    max-height: 80px;
+}
+
+.panel-heading {
+    cursor: pointer;
+}
+
+.panel-heading h2 {
+    display: inline;
+}
+
+.panel-heading .fa-external-link {
+    float: right;
+}
+
+.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+footer {
+    background-color: #eee;
+}
+
+footer div.container {
+    padding-top: 10px;
+}
